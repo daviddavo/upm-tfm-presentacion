@@ -115,6 +115,14 @@ MetaCartel            &   934 & 200  & 3k   & 35.38 \\
     TODO: Figura que muestre un ``espacio" 2d o 3d representando los embeddings de las propuestas, y ahí justo en el medio un icono del usuario
 \end{frame}
 
+\begin{frame}{Resultados PLN}
+    \begin{figure}
+        \centering
+        \includegraphics[height=45mm]{./images/graphs/11_cosine_results_window-size_W-THU_normalize=True.pdf}
+        \caption{Rendimiento del modelo PLN con respecto al tamaño de la ventana de entrenamiento}
+    \end{figure}
+\end{frame}
+
 \begin{frame}{Modelo basado en filtrado colaborativo}
     TODO: ¿Pongo la formula de los embeddings y la agregación? Yo creo que sí, la figura del paper también tá chula.
 \end{frame}
@@ -138,8 +146,30 @@ L2 regularization & $10^{-7}\leq l2 \leq 10^{-2}, l2 \in \mathbb{R}$ & Logunifor
 \end{frame}
 
 \begin{frame}{Fine-tuning de LightGCN II}
+    TODO: Aquí pondré alguna figura que ejemplifique el problema de hyperoptimizar conociendo el futuro o algo así
+\end{frame}
+
+\begin{frame}{Fine-tuning de LightGCN III}
     TODO: Aquí pondre como una especie de ``progress bar" que se rellene con distintos colores para indicar la parte que se usa para elegir los hiperparámetros y la que se testea como ``modelo realista''
 \end{frame}
 
+\begin{frame}{Resultados GNN}
+\begin{columns}
+\column{.5\linewidth}
+\begin{figure}
+    \centering
+    \includegraphics[height=45mm]{./images/graphs/09_gnn_results_precision_5_leaky.pdf}
+    \caption{precision@5 del modelo GNN}
+\end{figure}
+\column{.5\linewidth}
+\begin{figure}
+    \centering
+    \includegraphics[height=45mm]{./images/graphs/09_gnn_results_ndcg_10_leaky.pdf}
+    \caption{ndcg@10 del modelo GNN}
+\end{figure}
+\end{columns}
+\end{frame}
+
 \begin{frame}{Modelo híbrido}
+    TODO: Poner la figura 6.9de la memoria (métodos de fusión)
 \end{frame}
