@@ -1,0 +1,103 @@
+\documentclass[aspectratio=169,svgnames,compress]{beamer}
+% \documentclass[aspectratio=169,svgnames,compress,handout]{beamer}
+\usepackage[utf8]{inputenc}
+\usepackage[spanish,es-tabla]{babel}
+
+\usepackage{graphicx} % Required for inserting images
+\usepackage{fontawesome}
+\usepackage{hyperref}
+\usepackage[
+    sorting=none,
+    style=authoryear,
+]{biblatex}
+\usepackage{csquotes}
+\usepackage[type={CC}, modifier={by}, version={4.0}]{doclicense}
+
+% Cosas bibliografia
+\addbibresource{references.bib}
+\setbeamertemplate{bibliography item}{\faFileTextO}
+\renewcommand*{\bibfont}{\footnotesize}
+\DeclareCiteCommand{\footcite}%[\mkbibfootnote]
+  {% \boolfalse{citetracker}%
+   % \boolfalse{pagetracker}%
+   \usebibmacro{prenote}%
+   }
+  {%
+  % \ifciteindex
+  %    {\indexfield{indextitle}}
+  %    {}%
+   \printnames[][-1]{author}
+   \setunit{\adddot\space}
+   % \printfield[citetitle]{labeltitle}
+   \printfield{title}
+   \setunit{\adddot\space}
+   \printfield{year}
+   \setunit{\adddot\space}
+  }
+  {% sepcode
+    \multicitedelim%
+  }
+  { %postnote
+  \usebibmacro{postnote}
+  }
+
+\title{Exploración de Sistemas Recomendadores para la Recomendación de Propuestas en Organizaciones Autónomas Descentralizadas}
+\subtitle{Máster Universitario en Inteligencia Artificial}
+\author[David Davó Laviña]{David Davó Laviña\inst{2}\\[2mm]{\footnotesize Tutores: Damiano Zanardini\inst{1} \and Javier Arroyo\inst{2}}}
+\institute[UPM]{%
+    \inst{1} Departamento de Inteligencia Artificial, Universidad Politécnica de Madrid \and \inst{2} Departamento de Ingeniería del Software e Inteligencia Artificial, Universidad Complutense de Madrid
+}
+\date{Junio 2024}
+
+\logo{\includegraphics[height=1cm]{images/logos/escudo-leyenda-upm-color.pdf}}
+\titlegraphic{
+    \includegraphics[height=1.7cm]{images/logos/escudo-etsii-color.pdf}
+    \hspace{.2cm}
+    \includegraphics[height=1.7cm]{images/logos/escudo-upm-color.pdf}
+    % \hspace{.3cm}
+    % \tikz\node[circle, minimum width=1.9cm,
+    %     path picture = {
+    %         \node at (path picture bounding box.center) {
+    %             \includegraphics[width=2cm]{Images/logos/ascii.jpg}
+    %         };
+    %     }
+    % ] {};
+}
+
+% BEAMER THEME
+% \usetheme[height=1.2cm]{Rochester}
+
+% TODO: Pass the footline option to the miniframes package
+% \PassOptionsToPackage{footline=authorinstitute}{beamerouterthememiniframes}
+\usetheme{Berlin}
+% \usetheme{Dresden}
+
+\usecolortheme{default}
+\setbeamertemplate{navigation symbols}[only frame symbol]{}
+% Only for debugging
+\addtobeamertemplate{navigation symbols}{}{%
+    \usebeamerfont{footline}%
+    \usebeamercolor[fg]{footline}%
+    \hspace{1em}%
+    \insertframenumber/\inserttotalframenumber
+}
+% Reset the footnote number per each slide
+\AtBeginEnvironment{frame}{\setcounter{footnote}{0}}
+
+\newcommand\blfootnote[1]{
+    \begingroup
+    \renewcommand\thefootnote{}\footnote{#1}
+    \addtocounter{footnote}{-1}
+    \endgroup
+}
+
+\begin{document}
+
+\input{sections/0start}
+\input{sections/1intro}
+\input{sections/5implementacion}
+\input{sections/7resultados}
+\input{sections/8conclusiones}
+\input{sections/99end}
+
+\end{document}
