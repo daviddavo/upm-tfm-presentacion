@@ -11,7 +11,56 @@
 
 \subsection{Modelo basado en contenido}
 \begin{frame}{Definición}
-    TODO: Figura que muestre un ``espacio" 2d o 3d representando los embeddings de las propuestas, y ahí justo en el medio un icono del usuario
+% DONE: Figura que muestre un ``espacio" 2d o 3d representando los embeddings de las propuestas, y ahí justo en el medio un icono del usuario
+
+\begin{figure}
+    \centering
+    % Creado en parte por ChatGPT
+    \begin{tikzpicture}
+        % draw x and y axis
+        \draw[<->, thick, color=DarkGrey] (-2,0) -- (2,0) node[anchor=north west] {};
+        \draw[<->, thick, color=DarkGrey] (0,-2) -- (0,2) node[anchor=south east] {};
+
+        % put some positive samples
+        \tikzset{posprop/.style={
+            fill=Green!20,
+            draw=Green,
+            thick,
+            circle,
+            minimum size=0.2cm,
+            inner sep=0pt
+        }}
+        \node[posprop] (A) at (1,0.9) {};
+        \node[posprop] (B) at (0.5,1.5) {};
+        \node[posprop] (C) at (1.6,1.4) {};
+
+        % put some negative samples
+        \tikzset{negprop/.style={
+            posprop,
+            fill=Gray!20,
+            draw=Gray,
+        }}
+        \node[negprop] at (-1,-1) {};
+        \node[negprop] at (-1.2,-.6) {};
+        \node[negprop] at (0.8,-.3) {};
+        \node[negprop] at (-0.6,1.2) {};
+
+        \pause
+        % now the user
+        \coordinate (mean) at (barycentric cs:A=1,B=1,C=1);
+        \node[SkyBlue, anchor=center] at (mean) {\faUser};
+
+        \pause
+        \tikzset{newprop/.style={
+            posprop,
+            fill=Orange!20,
+            draw=Orange,
+        }}
+        \node[newprop] at (1.2,1.7) {};
+        \node[newprop] at (0.3,0.6) {};
+    \end{tikzpicture}
+    \caption{Representación simplificada del espacio latente del texto de las propuestas}
+\end{figure}
 \end{frame}
 
 \begin{frame}{Resultados}
