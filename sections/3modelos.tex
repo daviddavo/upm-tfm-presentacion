@@ -72,8 +72,39 @@
 \end{frame}
 
 \subsection{Modelo basado en filtrado colaborativo}
-\begin{frame}{Definición}
-    TODO: ¿Pongo la formula de los embeddings y la agregación? Yo creo que sí, la figura del paper también tá chula.
+\begin{frame}{LightGCN}
+    % TODO: ¿Pongo la formula de los embeddings y la agregación? Yo creo que sí, la figura del paper también tá chula.
+    \footnotesize
+    \vspace{-3pt}
+    \begin{columns}
+        \column{.5\linewidth}
+        \begin{figure}
+            \includegraphics[width=.95\linewidth]{./images/screenshots/lightgcn_fig2.png}
+        \end{figure}
+        \column{.5\linewidth}
+        \begin{exampleblock}{Light Graph Convolution}
+            \vspace{-2pt}
+            $$ 
+            {\color{DarkOrange}e_u^{(k+1)}} = 
+            \sum_{i\in \mathcal{N}} \frac{1}{
+                \sqrt{\left|\mathcal{N}_u\right|}
+                \sqrt{\left|\mathcal{N}_i\right|}
+            }
+            {\color{RoyalBlue}e_{i}^{(k)}}
+            $$
+            \vspace{-2pt}
+        \end{exampleblock}
+        \pause
+        \begin{exampleblock}{Embedding final}
+            \vspace{-2pt}
+            $$ 
+            {\color{DarkOrange}e_u} = \sum_{k=0}^K {\color{DarkOrange}e_u^{(k)}};\;
+            {\color{RoyalBlue}e_i} = \sum_{k=0}^K {\color{RoyalBlue}e_i^{(k)}}
+            $$
+            \vspace{-2pt}
+        \end{exampleblock}
+    \end{columns}
+    \blfootnote{\footcite{he_lightgcn_2020}}
 \end{frame}
 
 \begin{frame}{Fine-tuning de LightGCN I}
