@@ -1,11 +1,44 @@
 \section{Conclusiones}
+
 \begin{frame}{Trabajo realizado}
     \begin{itemize}
-        \item Se ha adaptado el conjunto de datos para sistemas recomendadores
-        \item Se ha desarrollado una linea base y un método de evaluación
+        \item Dataset
+        \item Línea base: \textit{OpenPop}
+        \item Evaluación: división en entrenamiento y prueba
+        \item Desarrollo de modelos
+        \item Elección de hiperparámetros
     \end{itemize}
 \end{frame}
 
-\begin{frame}
-    \fistrum[][1-3]
+\begin{frame}{Limitaciones}
+    \begin{itemize}
+        \item Evaluación offline \textrightarrow ¿Cómo se comportará en realidad?
+        \item Modelo GNN re-entrenado cada fold
+        \item Simulación discretizada
+    \end{itemize} 
 \end{frame}
+
+\begin{frame}{Trabajo futuro}
+    \begin{itemize}
+        \item Exploración de otros modelos
+        \item Tener en cuenta el tiempo
+        \item Expandir el grafo utilizado
+        \item Evitar re-entrenamiento
+        \item Mejorar la evaluación
+        \item Probar otras maneras de elegir hiperparámetros
+    \end{itemize}
+\end{frame}
+
+\begingroup
+\setbeamertemplate{logo}{}
+\begin{frame}{Preguntas}
+    \vfill
+    \begin{itemize}
+        \item Código: \faGithub\ \href{https://github.com/daviddavo/upm-tfm-notebooks}{daviddavo/upm-tfm-notebooks}
+        \item Diapositivas: \faGithub\ \href{https://github.com/daviddavo/upm-tfm-presentacion}{daviddavo/upm-tfm-presentacion}
+    \end{itemize}
+    \vfill
+    \vspace{25mm}
+    \doclicenseThis
+\end{frame}
+\endgroup
