@@ -5,7 +5,7 @@
 ![Portada de la presentación](./_site/cover.png)
 
 -   [Versión proyector](https://daviddavo.github.io/upm-tfm-presentacion/David_Davo_TFM_beamer.pdf)
--   [Versión impresa (sin animaciones)](https://daviddavo.github.io/upm-tfm-presentacion/David_Davo_TFM_handouts.pdf)
+-   [Versión para imprimir (sin animaciones)](https://daviddavo.github.io/upm-tfm-presentacion/David_Davo_TFM_handouts.pdf)
 -   [Código fuente (LaTeX)](https://github.com/daviddavo/tfm-presentacion)
 -   [Proyecto completo (GitHub)](https://github.com/daviddavo/upm-tfm-notebooks)
 
