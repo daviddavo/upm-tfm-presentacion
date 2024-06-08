@@ -27,7 +27,7 @@ jobs:
         uses: xu-cheng/latex-action@v3
         with:
           latexmk_use_xelatex: true
-          extra_system_packages: "libwww-perl"
+          extra_system_packages: "perl-libwww"
           texlive_version: 2024
           # Compile multiple documents
           root_file: |
