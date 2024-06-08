@@ -24,9 +24,11 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - name: Build LaTeX
-        uses: xu-cheng/latex-action@v2
+        uses: xu-cheng/latex-action@v3
         with:
           latexmk_use_xelatex: true
+          extra_system_packages: "libwww-perl"
+          texlive_version: 2024
           # Compile multiple documents
           root_file: |
             main.tex
