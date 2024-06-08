@@ -34,7 +34,7 @@ jobs:
       - name: Build page
         run: |
           mv main.pdf _site/David_Davo_TFM_beamer.pdf
-          mv spanish.pdf _site/David_Davo_TFM_handouts.pdf
+          mv handouts.pdf _site/David_Davo_TFM_handouts.pdf
       - name: Upload GitHub Pages artifact
         uses: actions/upload-pages-artifact@v3
         
