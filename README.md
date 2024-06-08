@@ -4,9 +4,6 @@
 
 ![Portada de la presentación](./_site/cover.png)
 
-Esto es solo un pequeño índice para que la presentación se compile y se
-distribuya gratis con GitHub pages.
-
 -   [Versión proyector](https://daviddavo.github.io/upm-tfm-presentacion/David_Davo_TFM_beamer.pdf)
 -   [Versión impresa (sin animaciones)](https://daviddavo.github.io/upm-tfm-presentacion/David_Davo_TFM_handouts.pdf)
 -   [Código fuente (LaTeX)](https://github.com/daviddavo/tfm-presentacion)
