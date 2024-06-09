@@ -126,19 +126,19 @@ L2 regularization & $10^{-7}\leq l2 \leq 10^{-2}, l2 \in \mathbb{R}$ & Logunifor
 \end{frame}
 
 \begin{frame}{Fine-tuning de LightGCN II}
-    TODO: Aquí pondre como una especie de ``progress bar" que se rellene con distintos colores para indicar la parte que se usa para elegir los hiperparámetros y la que se testea como ``modelo realista''
-
+    % Aquí pondre como una especie de ``progress bar" que se rellene con distintos colores para indicar la parte que se usa para elegir los hiperparámetros y la que se testea como ``modelo realista''
     \begin{figure}
         \centering
         \begin{tikzpicture}
-            \def\trainw{3.5cm}
+            \def\trainw{3.3cm}
             \def\testw{.7cm}
             \def\recth{0.5cm}
             \def\rectspace{0.25cm}
 
-            \foreach \i in {0,1,2,3} {
-                \pgfmathsetlengthmacro{\ybot}{(\i*(\recth + \rectspace))}
-                \pgfmathsetlengthmacro{\ytop}{\ybot+\recth}
+            \pgfmathsetlengthmacro{\lastybot}{-4*(\recth+\rectspace)}
+            \foreach \i/\v in {0/0.21,1/0.34,2/0.25,3/0.17} {
+                \pgfmathsetlengthmacro{\ybot}{(-\i*(\recth + \rectspace))}
+                \pgfmathsetlengthmacro{\ytop}{\ybot-\recth}
 
                 \draw[
                     thick,
@@ -147,7 +147,8 @@ L2 regularization & $10^{-7}\leq l2 \leq 10^{-2}, l2 \in \mathbb{R}$ & Logunifor
                 ]
                     (0,\ybot)
                     rectangle
-                    (\trainw,\ybot+\recth);
+                    (\trainw,\ytop);
+                \node[anchor=east] at (0,\ybot-\recth/2) {$H_\i$};
                 \draw[
                     thick,
                     fill=RoyalBlue!20,
@@ -155,15 +156,22 @@ L2 regularization & $10^{-7}\leq l2 \leq 10^{-2}, l2 \in \mathbb{R}$ & Logunifor
                 ] 
                 (\trainw,\ybot)
                 rectangle
-                (\trainw+\testw,\ytop);
+                (\trainw+\testw,\ytop)
+                node[midway,right=3mm] {\v};
             }
 
             \draw[
                 decorate,
-                decoration={brace,amplitude=10pt,mirror,raise=5pt},
+                decoration={brace,amplitude=10pt,raise=5pt},
             ]
             (0,0) -- (\trainw,0)
-            node[midway,below=15pt] {Entrenamiento};
+            node[anchor=south,midway,above=15pt] {Entrenamiento};
+            \draw[
+                decorate,
+                decoration={brace,amplitude=10pt,mirror},
+            ]
+            (0,\lastybot) -- (\trainw+\testw,\lastybot)
+            node[anchor=north,midway,below=7pt] {Fold $n$};
         \end{tikzpicture}
     \end{figure}
 \end{frame}
