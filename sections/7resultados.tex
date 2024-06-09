@@ -1,4 +1,34 @@
 \section{Resultados}
+
+\begin{frame}{Decentraland}
+    \begin{columns}
+        \column{.4\linewidth}
+        \begin{table}
+            \begin{tabular}{l|r}
+\textbf{Modelo} & \textbf{precision@5} \\
+\hline
+OpenPop & 0.221 \\
+GNN        & 0.271 \\
+\hline
+avg.     & 0.287 \\
+naive      & 0.289 \\
+prioritize & 0.291 \\
+avg. all & \textbf{0.292} \\
+\hline
+NLP & 0.295 \\
+            \end{tabular}
+            \caption{Media de los folds}
+        \end{table}
+        \pause
+        \column{.6\linewidth}
+        \begin{figure}
+            \centering
+            \includegraphics[height=45mm]{./images/graphs/12_hybrid_merge_results_folds_Decentraland_W-THU_normalize=True_compare.pdf}
+            \caption{Resultados en cada fold de los sistemas recomendadores}
+        \end{figure}
+    \end{columns}
+\end{frame}
+
 \begin{frame}{Otras organizaciones}
 \begin{figure}
     \centering

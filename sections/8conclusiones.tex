@@ -10,27 +10,34 @@
     \end{itemize}
 \end{frame}
 
-\begin{frame}{Limitaciones}
-    \begin{itemize}
-        \item Evaluación offline \textrightarrow ¿Cómo se comportará en realidad?
-        \item Modelo GNN re-entrenado cada fold
-        \item Simulación discretizada
-    \end{itemize} 
-\end{frame}
-
-\begin{frame}{Trabajo futuro}
-    \begin{itemize}
-        \item Exploración de otros modelos
-        \begin{itemize}
-            \item Tener en cuenta el tiempo
-            \item Expandir el grafo utilizado
-            % Creo que no hace falta deciro porque ya está en limitaciones
-            % \item Evitar re-entrenamiento
-        \end{itemize}
-        \item Mejorar la evaluación
-        \item Elección de hiperparámetros
-        \item Despliegue descentralizado\footnote{\footcite{patel_graph_2024}}
-    \end{itemize}
+\begin{frame}
+    \begin{columns}
+        \column{.5\linewidth}
+        \begin{alertblock}{Limitaciones}
+            \begin{itemize}
+                \item Evaluación offline \textrightarrow ¿Cómo se comportará en realidad?
+                \item Modelo GNN re-entrenado cada fold
+                \item Simulación discretizada
+            \end{itemize} 
+        \end{alertblock}
+        \pause
+        \column{.5\linewidth}
+        \begin{exampleblock}{Trabajo futuro}
+            \begin{itemize}
+                \item Exploración de otros modelos
+                \begin{itemize}
+                    \item Tener en cuenta el tiempo
+                    \item Expandir el grafo utilizado
+                    % Creo que no hace falta deciro porque ya está en limitaciones
+                    % \item Evitar re-entrenamiento
+                \end{itemize}
+                \item Mejorar la evaluación
+                \item Elección de hiperparámetros
+                \item Despliegue descentralizado\footnotemark
+            \end{itemize}
+        \end{exampleblock}
+    \end{columns}
+    \footnotetext{\footcite{patel_graph_2024}}
 \end{frame}
 
 \begingroup
