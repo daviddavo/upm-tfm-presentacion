@@ -135,7 +135,9 @@ L2 regularization & $10^{-7}\leq l2 \leq 10^{-2}, l2 \in \mathbb{R}$ & Logunifor
             \def\recth{0.5cm}
             \def\rectspace{0.25cm}
 
+            % Draw the four main rectangles (train and test)
             \pgfmathsetlengthmacro{\lastybot}{-4*(\recth+\rectspace)}
+            \pgfmathsetlengthmacro{\bestybot}{-1*(\recth+\rectspace)}
             \foreach \i/\v in {0/0.21,1/0.34,2/0.25,3/0.17} {
                 \pgfmathsetlengthmacro{\ybot}{(-\i*(\recth + \rectspace))}
                 \pgfmathsetlengthmacro{\ytop}{\ybot-\recth}
@@ -157,9 +159,10 @@ L2 regularization & $10^{-7}\leq l2 \leq 10^{-2}, l2 \in \mathbb{R}$ & Logunifor
                 (\trainw,\ybot)
                 rectangle
                 (\trainw+\testw,\ytop)
-                node[midway,right=3mm] {\v};
+                node[midway,right=3mm] (val\i) {\v};
             }
 
+            % Draw the braces
             \draw[
                 decorate,
                 decoration={brace,amplitude=10pt,raise=5pt},
@@ -172,6 +175,33 @@ L2 regularization & $10^{-7}\leq l2 \leq 10^{-2}, l2 \in \mathbb{R}$ & Logunifor
             ]
             (0,\lastybot) -- (\trainw+\testw,\lastybot)
             node[anchor=north,midway,below=7pt] {Fold $n$};
+
+            \pause
+            % Draw the arrow
+            \draw[
+                -stealth,
+            ] (val2.east) to ++(10mm,0) node [right] (nextfold) {$H_2$};
+
+            % Draw the right rectangle
+            \draw[
+                thick,
+                fill=Green!20,
+                draw=Green,
+            ]
+            (nextfold.south east) rectangle ++(\trainw+1cm,\recth) node (nextfoldt) {};
+            \draw[
+                thick,
+                fill=RoyalBlue!20,
+                draw=RoyalBlue,
+            ] (nextfoldt) rectangle ++(\testw,-\recth) node (nextfoldf) {};
+
+            % Draw the next brace
+            \draw[
+                decorate,
+                decoration={brace,amplitude=10pt,mirror},
+            ]
+            ($(nextfold.south east)+(0,-\rectspace)$) -- ($(nextfoldf)+(0,-\rectspace)$)
+            node[anchor=north,midway,below=7pt] {Fold $n+1$};
         \end{tikzpicture}
     \end{figure}
 \end{frame}
