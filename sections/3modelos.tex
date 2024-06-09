@@ -58,6 +58,10 @@
         }}
         \node[newprop] at (1.2,1.7) {};
         \node[newprop] at (0.3,0.6) {};
+
+        % Force "finishing" the picture even on the first slide
+        % https://tex.stackexchange.com/a/70051/107093
+        \onslide<1->
     \end{tikzpicture}
     \caption{Representación simplificada del espacio latente del texto de las propuestas}
 \end{figure}
@@ -202,6 +206,10 @@ L2 regularization & $10^{-7}\leq l2 \leq 10^{-2}, l2 \in \mathbb{R}$ & Logunifor
             ]
             ($(nextfold.south east)+(0,-\rectspace)$) -- ($(nextfoldf)+(0,-\rectspace)$)
             node[anchor=north,midway,below=7pt] {Fold $n+1$};
+
+            % Force "finishing" the picture even on the first slide
+            % https://tex.stackexchange.com/a/70051/107093
+            \onslide<1->
         \end{tikzpicture}
     \end{figure}
 \end{frame}
