@@ -127,6 +127,45 @@ L2 regularization & $10^{-7}\leq l2 \leq 10^{-2}, l2 \in \mathbb{R}$ & Logunifor
 
 \begin{frame}{Fine-tuning de LightGCN II}
     TODO: Aquí pondre como una especie de ``progress bar" que se rellene con distintos colores para indicar la parte que se usa para elegir los hiperparámetros y la que se testea como ``modelo realista''
+
+    \begin{figure}
+        \centering
+        \begin{tikzpicture}
+            \def\trainw{3.5cm}
+            \def\testw{.7cm}
+            \def\recth{0.5cm}
+            \def\rectspace{0.25cm}
+
+            \foreach \i in {0,1,2,3} {
+                \pgfmathsetlengthmacro{\ybot}{(\i*(\recth + \rectspace))}
+                \pgfmathsetlengthmacro{\ytop}{\ybot+\recth}
+
+                \draw[
+                    thick,
+                    fill=Green!20,
+                    draw=Green
+                ]
+                    (0,\ybot)
+                    rectangle
+                    (\trainw,\ybot+\recth);
+                \draw[
+                    thick,
+                    fill=RoyalBlue!20,
+                    draw=RoyalBlue,
+                ] 
+                (\trainw,\ybot)
+                rectangle
+                (\trainw+\testw,\ytop);
+            }
+
+            \draw[
+                decorate,
+                decoration={brace,amplitude=10pt,mirror,raise=5pt},
+            ]
+            (0,0) -- (\trainw,0)
+            node[midway,below=15pt] {Entrenamiento};
+        \end{tikzpicture}
+    \end{figure}
 \end{frame}
 
 \begin{frame}{Resultados GNN}
