@@ -10,7 +10,7 @@
 \end{frame}
 
 \subsection{Modelo basado en contenido}
-\begin{frame}{Definición}
+\begin{frame}{Modelo basado en PLN}
 % DONE: Figura que muestre un ``espacio" 2d o 3d representando los embeddings de las propuestas, y ahí justo en el medio un icono del usuario
 
 \begin{figure}
@@ -34,6 +34,8 @@
         \node[posprop] (B) at (0.5,1.5) {};
         \node[posprop] (C) at (1.6,1.4) {};
 
+        \draw<1>[->, thick, Green] ($(C.east)+(1mm,1mm)$) -- ++(6mm,2mm) node[anchor=west] {Propuesta votada};
+
         % put some negative samples
         \tikzset{negprop/.style={
             posprop,
@@ -43,12 +45,15 @@
         \node[negprop] at (-1,-1) {};
         \node[negprop] at (-1.2,-.6) {};
         \node[negprop] at (0.8,-.3) {};
-        \node[negprop] at (-0.6,1.2) {};
+        \node[negprop] (NA) at (-0.6,1.2) {};
+
+        \draw<1>[->, thick, Gray] ($(NA.west)-(1mm,1mm)$) -- ++(-6mm,-2mm) node[anchor=east] {Propuesta ignorada};
 
         \pause
         % now the user
         \coordinate (mean) at (barycentric cs:A=1,B=1,C=1);
         \node[SkyBlue, anchor=center] at (mean) {\faUser};
+        \draw<2>[->, thick, SkyBlue] ($(mean.south east)+(2mm,-2mm)$) -- ++(6mm,-3mm) node[anchor=west] {$\mu$};
 
         \pause
         \tikzset{newprop/.style={
@@ -56,8 +61,9 @@
             fill=Orange!20,
             draw=Orange,
         }}
-        \node[newprop] at (1.2,1.7) {};
+        \node[newprop] (NP) at (1.2,1.7) {};
         \node[newprop] at (0.3,0.6) {};
+        \draw<3>[->, thick, Orange] ($(NP.north)+(0mm,1mm)$) -- ++(0mm,4mm) node[anchor=south] {Nueva propuesta};
 
         % Force "finishing" the picture even on the first slide
         % https://tex.stackexchange.com/a/70051/107093
