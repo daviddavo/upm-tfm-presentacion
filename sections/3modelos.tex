@@ -154,7 +154,7 @@ L2 regularization & $10^{-7}\leq l2 \leq 10^{-2}, l2 \in \mathbb{R}$ & Logunifor
 \blfootnote{\footcite{liaw_tune_2018}}
 \end{frame}
 
-\begin{frame}{Fine-tuning de LightGCN II}
+\begin{frame}{Elección de hiperparámetros}
     % Aquí pondre como una especie de ``progress bar" que se rellene con distintos colores para indicar la parte que se usa para elegir los hiperparámetros y la que se testea como ``modelo realista''
     \begin{figure}
         \centering
@@ -179,7 +179,7 @@ L2 regularization & $10^{-7}\leq l2 \leq 10^{-2}, l2 \in \mathbb{R}$ & Logunifor
                     (0,\ybot)
                     rectangle
                     (\trainw,\ytop);
-                \node[anchor=east] at (0,\ybot-\recth/2) {$H_\i$};
+                \node[anchor=east] at (0,\ybot-\recth/2) {$hp_\i$};
                 \draw[
                     thick,
                     fill=RoyalBlue!20,
@@ -203,13 +203,13 @@ L2 regularization & $10^{-7}\leq l2 \leq 10^{-2}, l2 \in \mathbb{R}$ & Logunifor
                 decoration={brace,amplitude=10pt,mirror},
             ]
             (0,\lastybot) -- (\trainw+\testw,\lastybot)
-            node[anchor=north,midway,below=7pt] {Fold $n$};
+            node[anchor=north,midway,below=7pt] {Fold $t$};
 
             \pause
             % Draw the arrow
             \draw[
                 -stealth,
-            ] (val1.east) to ++(10mm,0) node [right] (nextfold) {$H_1$};
+            ] (val1.east) to ++(10mm,0) node [right] (nextfold) {$hp_1$};
 
             % Draw the right rectangle
             \draw[
@@ -230,7 +230,7 @@ L2 regularization & $10^{-7}\leq l2 \leq 10^{-2}, l2 \in \mathbb{R}$ & Logunifor
                 decoration={brace,amplitude=10pt,mirror},
             ]
             ($(nextfold.south east)+(0,-\rectspace)$) -- ($(nextfoldf)+(0,-\rectspace)$)
-            node[anchor=north,midway,below=7pt] {Fold $n+1$};
+            node[anchor=north,midway,below=7pt] {Fold $t+1$};
 
             % Force "finishing" the picture even on the first slide
             % https://tex.stackexchange.com/a/70051/107093
