@@ -4,15 +4,25 @@
 \begin{itemize}
     \item<1-> \textbf{Basado en contenido}\onslide<3->{: PLN del texto de las propuestas}
     \item<2-> \textbf{Basado en filtrado colaborativo}\onslide<3->{: Graph Neural Networks (LightGCN)}
-    \item<4-> \textbf{Híbrido}: Ensamblaje de los dos anteriores
+    \item<4-> \textbf{Híbrido}: \textit{Ensemble} de los dos anteriores
     % \item<5-> \color{gray}{\textbf{Basado en conocimiento}: No hecho\footnote{\footcite{valiente_integration_2022}}}
 \end{itemize}
 \end{frame}
 
 \subsection{Modelo basado en contenido}
-\begin{frame}{Modelo basado en PLN}
-% DONE: Figura que muestre un ``espacio" 2d o 3d representando los embeddings de las propuestas, y ahí justo en el medio un icono del usuario
 
+\begin{frame}{Modelos del lenguaje}
+    \begin{itemize}[<+->]
+        \item Usando título y descripción de cada propuesta
+        \item Python's Sentence Transformers (SBERT): \texttt{all-mpnet-base-v2} (768 dims)
+        \item Importante: Utilizar tokenizador probabilístico
+        \vspace*{4mm}
+        \item ¿Cómo usamos los embeddings?
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Ejemplo}
+% DONE: Figura que muestre un ``espacio" 2d o 3d representando los embeddings de las propuestas, y ahí justo en el medio un icono del usuario
 \begin{figure}
     \centering
     % Creado en parte por ChatGPT
@@ -77,11 +87,20 @@
     \begin{figure}
         \centering
         \includegraphics[height=45mm]{./images/graphs/11_cosine_results_window-size_W-THU_normalize=True_beamer.pdf}
-        \caption{Rendimiento del modelo PLN con respecto al número de propuestas utilizadas para entrenamiento}
+        \caption{Rendimiento del modelo PLN con respecto al número de días utilizados para crear el modelo del usuario}
     \end{figure}
 \end{frame}
 
 \subsection{Modelo basado en filtrado colaborativo}
+
+\begin{frame}{Graph Neural Networks}
+    \begin{itemize}[<+->]
+        \item SOTA en Sistemas Recomendadores
+        \item Grafo Bipartito \textrightarrow\ Link prediction
+        \item Nodo \textrightarrow\ Embedding
+    \end{itemize}
+\end{frame}
+
 \begin{frame}{LightGCN}
     % TODO: ¿Pongo la formula de los embeddings y la agregación? Yo creo que sí, la figura del paper también tá chula.
     \footnotesize
